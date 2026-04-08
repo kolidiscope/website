@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Attributions — Kolidiscope</title>
+    <meta name="description" content="Open source software components and licenses used in Kolidiscope products.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2236;
+            --accent: #00d4ff;
+            --accent-dim: #0099b8;
+            --accent-glow: rgba(0, 212, 255, 0.15);
+            --text-primary: #e8edf5;
+            --text-secondary: #8892a4;
+            --border: #1e2a3a;
+            --gradient-1: linear-gradient(135deg, #00d4ff 0%, #7b61ff 100%);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-logo .wordmark {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        .nav-links a.active { color: var(--accent); }
+
+        .btn {
+            display: inline-block;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 24px rgba(0, 212, 255, 0.35);
+            transform: translateY(-1px);
+        }
+
+        /* --- PAGE CONTENT --- */
+        .page-header {
+            padding: 8rem 2rem 3rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .oss-section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .last-updated {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        /* --- TABLE --- */
+        .oss-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+        }
+
+        .oss-table thead th {
+            text-align: left;
+            padding: 0.85rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .oss-table thead th:first-child { border-radius: 8px 0 0 0; }
+        .oss-table thead th:last-child { border-radius: 0 8px 0 0; }
+
+        .oss-table tbody td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+
+        .oss-table tbody tr:hover {
+            background: rgba(0, 212, 255, 0.03);
+        }
+
+        .oss-table .pkg-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .oss-table .pkg-desc {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .license-badge {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--accent-glow);
+            color: var(--accent);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            white-space: nowrap;
+        }
+
+        .oss-table a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .oss-table a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- DETAIL CARDS --- */
+        .license-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .license-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+        }
+
+        .license-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .license-card .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .license-card .meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .license-card .meta span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .license-card .meta a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        .license-card .meta a:hover { text-decoration: underline; }
+
+        /* --- NOTES --- */
+        .notes {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-top: 2rem;
+        }
+
+        .notes h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .notes p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-inner span {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.75rem 1rem; }
+            .nav-links { display: none; }
+            .page-header { padding: 7rem 1.5rem 2rem; }
+            .oss-section { padding: 1rem 1.5rem 4rem; }
+            .oss-table { font-size: 0.85rem; }
+            .oss-table thead th, .oss-table tbody td { padding: 0.65rem 0.5rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-logo">
+        <img src="logo.png" alt="Kolidiscope" style="filter: brightness(0) invert(1);">
+    </a>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/opensource" class="active">Open Source</a>
+        <a href="/#contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h1>Open Source Attributions</h1>
+    <p>Kolidiscope is built on the shoulders of the open source community. Below is a complete list of incorporated open source components and their respective licenses used in our platform.</p>
+</div>
+
+<!-- OSS TABLE -->
+<section class="oss-section">
+    <div class="last-updated">Last updated: April 8, 2026</div>
+
+    <table class="oss-table">
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>License</th>
+                <th>SPDX Identifier</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="pkg-name">Python</div>
+                    <div class="pkg-desc">Programming language runtime</div>
+                </td>
+                <td><span class="license-badge">PSF-2.0</span></td>
+                <td>PSF-2.0</td>
+                <td><a href="https://github.com/python/cpython/blob/main/LICENSE" target="_blank" rel="noopener">License &rarr;</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="pkg-name">Flask</div>
+                    <div class="pkg-desc">Lightweight web application framework</div>
+                </td>
+                <td><span class="license-badge">BSD-3-Clause</span></td>
+                <td>BSD-3-Clause</td>
+                <td><a href="https://github.com/pallets/flask/blob/main/LICENSE.txt" target="_blank" rel="noopener">License &rarr;</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="pkg-name">scikit-learn</div>
+                    <div class="pkg-desc">Machine learning library</div>
+                </td>
+                <td><span class="license-badge">BSD-3-Clause</span></td>
+                <td>BSD-3-Clause</td>
+                <td><a href="https://github.com/scikit-learn/scikit-learn/blob/main/COPYING" target="_blank" rel="noopener">License &rarr;</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="pkg-name">NumPy</div>
+                    <div class="pkg-desc">Numerical computing library</div>
+                </td>
+                <td><span class="license-badge">BSD-3-Clause</span></td>
+                <td>BSD-3-Clause</td>
+                <td><a href="https://github.com/numpy/numpy/blob/main/LICENSE.txt" target="_blank" rel="noopener">License &rarr;</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="pkg-name">pandas</div>
+                    <div class="pkg-desc">Data analysis and manipulation library</div>
+                </td>
+                <td><span class="license-badge">BSD-3-Clause</span></td>
+                <td>BSD-3-Clause</td>
+                <td><a href="https://github.com/pandas-dev/pandas/blob/main/LICENSE" target="_blank" rel="noopener">License &rarr;</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="pkg-name">SciPy</div>
+                    <div class="pkg-desc">Scientific computing library</div>
+                </td>
+                <td><span class="license-badge">BSD-3-Clause</span></td>
+                <td>BSD-3-Clause</td>
+                <td><a href="https://github.com/scipy/scipy/blob/main/LICENSE.txt" target="_blank" rel="noopener">License &rarr;</a></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="pkg-name">joblib</div>
+                    <div class="pkg-desc">Lightweight pipelining and parallel computing</div>
+                </td>
+                <td><span class="license-badge">BSD-3-Clause</span></td>
+                <td>BSD-3-Clause</td>
+                <td><a href="https://github.com/joblib/joblib/blob/main/LICENSE" target="_blank" rel="noopener">License &rarr;</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- DETAILED CARDS -->
+    <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em;">Component Details</h2>
+
+    <div class="license-details">
+        <div class="license-card">
+            <h3><span class="license-badge">PSF-2.0</span> Python</h3>
+            <p class="card-desc">The Python programming language, developed and maintained by the Python Software Foundation. Python serves as the core runtime for the Kolidiscope platform.</p>
+            <div class="meta">
+                <span>Copyright &copy; Python Software Foundation</span>
+                <a href="https://www.python.org" target="_blank" rel="noopener">python.org</a>
+                <a href="https://github.com/python/cpython/blob/main/LICENSE" target="_blank" rel="noopener">View license</a>
+            </div>
+        </div>
+
+        <div class="license-card">
+            <h3><span class="license-badge">BSD-3-Clause</span> Flask</h3>
+            <p class="card-desc">A lightweight WSGI web application framework for Python. Flask is used to serve Kolidiscope's web application and API layer.</p>
+            <div class="meta">
+                <span>Copyright &copy; Pallets</span>
+                <a href="https://flask.palletsprojects.com" target="_blank" rel="noopener">flask.palletsprojects.com</a>
+                <a href="https://github.com/pallets/flask/blob/main/LICENSE.txt" target="_blank" rel="noopener">View license</a>
+            </div>
+        </div>
+
+        <div class="license-card">
+            <h3><span class="license-badge">BSD-3-Clause</span> scikit-learn</h3>
+            <p class="card-desc">A machine learning library for Python providing simple and efficient tools for data mining and data analysis. Used in Kolidiscope's predictive modeling and data study automation pipelines.</p>
+            <div class="meta">
+                <span>Copyright &copy; The scikit-learn developers</span>
+                <a href="https://scikit-learn.org" target="_blank" rel="noopener">scikit-learn.org</a>
+                <a href="https://github.com/scikit-learn/scikit-learn/blob/main/COPYING" target="_blank" rel="noopener">View license</a>
+            </div>
+        </div>
+
+        <div class="license-card">
+            <h3><span class="license-badge">BSD-3-Clause</span> NumPy</h3>
+            <p class="card-desc">The fundamental package for scientific computing with Python, providing support for large multi-dimensional arrays and matrices. Core numerical computation engine used throughout the Kolidiscope platform.</p>
+            <div class="meta">
+                <span>Copyright &copy; NumPy Developers</span>
+                <a href="https://numpy.org" target="_blank" rel="noopener">numpy.org</a>
+                <a href="https://github.com/numpy/numpy/blob/main/LICENSE.txt" target="_blank" rel="noopener">View license</a>
+            </div>
+        </div>
+
+        <div class="license-card">
+            <h3><span class="license-badge">BSD-3-Clause</span> pandas</h3>
+            <p class="card-desc">A fast, powerful, and flexible open source data analysis and manipulation tool. Used extensively in Kolidiscope for data ingestion, transformation, and report generation.</p>
+            <div class="meta">
+                <span>Copyright &copy; AQR Capital Management, Lambda Foundry, Inc., PyData Development Team</span>
+                <a href="https://pandas.pydata.org" target="_blank" rel="noopener">pandas.pydata.org</a>
+                <a href="https://github.com/pandas-dev/pandas/blob/main/LICENSE" target="_blank" rel="noopener">View license</a>
+            </div>
+        </div>
+
+        <div class="license-card">
+            <h3><span class="license-badge">BSD-3-Clause</span> SciPy</h3>
+            <p class="card-desc">An open source library for mathematics, science, and engineering. Provides advanced statistical functions and optimization routines used in Kolidiscope's data study calculations.</p>
+            <div class="meta">
+                <span>Copyright &copy; Enthought, Inc. &amp; SciPy Developers</span>
+                <a href="https://scipy.org" target="_blank" rel="noopener">scipy.org</a>
+                <a href="https://github.com/scipy/scipy/blob/main/LICENSE.txt" target="_blank" rel="noopener">View license</a>
+            </div>
+        </div>
+
+        <div class="license-card">
+            <h3><span class="license-badge">BSD-3-Clause</span> joblib</h3>
+            <p class="card-desc">A set of tools to provide lightweight pipelining and transparent disk-caching of results. Used in Kolidiscope for parallel computing and efficient computation pipelines.</p>
+            <div class="meta">
+                <span>Copyright &copy; joblib Developers</span>
+                <a href="https://joblib.readthedocs.io" target="_blank" rel="noopener">joblib.readthedocs.io</a>
+                <a href="https://github.com/joblib/joblib/blob/main/LICENSE" target="_blank" rel="noopener">View license</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTES -->
+    <div class="notes">
+        <h3>Notice</h3>
+        <p>This page lists all open source software components incorporated into the Kolidiscope platform. We are grateful to the open source community for making these projects available. If you believe any attribution is missing or incorrect, please contact us at <a href="mailto:info@kolidiscope.com" style="color: var(--accent); text-decoration: none;">info@kolidiscope.com</a>. This page is updated as components are added, removed, or upgraded.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <span>&copy; 2026 Kolidiscope. All rights reserved.</span>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="mailto:info@kolidiscope.com">Contact</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
