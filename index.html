@@ -264,6 +264,165 @@
             line-height: 1.65;
         }
 
+        /* --- HOW IT WORKS --- */
+        .how-it-works {
+            padding: 6rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .how-it-works h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .step {
+            padding: 1.75rem 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .step-line {
+            width: 2px;
+            height: 28px;
+            background: var(--border);
+            margin: 0 auto;
+        }
+
+        /* --- USE CASES --- */
+        .use-cases {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .use-cases h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .use-case-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 3px solid var(--accent);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .use-case-card:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.06);
+        }
+
+        .use-case-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        /* --- SECURITY --- */
+        .security {
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .security h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .security-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .security-icon {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .security-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .security-item p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.65;
+        }
+
+        /* --- ABOUT --- */
+        .about {
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .about-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
         /* --- CTA SECTION --- */
         .cta-section {
             padding: 6rem 2rem;
@@ -361,7 +520,9 @@
     </a>
     <div class="nav-links">
         <a href="#features">Product</a>
-        <a href="/opensource">Open Source</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#security">Security</a>
+        <a href="#about">About</a>
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
     </div>
 </nav>
@@ -415,6 +576,98 @@
     </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works">
+    <div class="section-label">How it works</div>
+    <h2>From data to decisions in four steps</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">01</div>
+            <h3>Connect Your Data</h3>
+            <p>Onboard your data products to the platform. We handle ingestion, formatting, and validation so you're up and running fast.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+            <div class="step-number">02</div>
+            <h3>Run Prospective Studies</h3>
+            <p>Automatically analyze your data against customer portfolios. The platform evaluates lift, coverage, and predictive power across segments.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+            <div class="step-number">03</div>
+            <h3>Optimize & Recommend</h3>
+            <p>Get optimized waterfall configurations and decision cutoffs tailored to each customer's constraints — volume, risk, or cost.</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+            <div class="step-number">04</div>
+            <h3>Deliver & Monitor</h3>
+            <p>Generate customer-ready reports and continuously track scoring model and attribute performance over time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- USE CASES -->
+<section class="use-cases" id="use-cases">
+    <div class="section-label">Use cases</div>
+    <h2>Built for the way data vendors sell</h2>
+    <div class="feature-grid">
+        <div class="use-case-card">
+            <h3>Prove Data Product Lift</h3>
+            <p>Show prospects exactly how your data improves their decisioning with automated performance studies and clear, quantified results.</p>
+        </div>
+        <div class="use-case-card">
+            <h3>Optimize for New Customer Segments</h3>
+            <p>Quickly configure the right waterfall and cutoffs when expanding into new verticals or customer types — no guesswork.</p>
+        </div>
+        <div class="use-case-card">
+            <h3>Monitor Post-Sale Performance</h3>
+            <p>Keep customers confident with ongoing model and attribute monitoring. Identify drift before it becomes a retention issue.</p>
+        </div>
+        <div class="use-case-card">
+            <h3>Accelerate Sales Cycles</h3>
+            <p>Arm your business development team with on-demand reports and data-backed recommendations that close deals faster.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security" id="security">
+    <div class="section-label">Security & compliance</div>
+    <h2>Enterprise-grade by default</h2>
+    <div class="security-grid">
+        <div class="security-item">
+            <div class="security-icon">🔒</div>
+            <h3>Encryption</h3>
+            <p>All data encrypted in transit (TLS 1.2+) and at rest (AES-256).</p>
+        </div>
+        <div class="security-item">
+            <div class="security-icon">☁️</div>
+            <h3>Cloud Infrastructure</h3>
+            <p>Hosted on secure, SOC 2-compliant cloud infrastructure with automated backups and monitoring.</p>
+        </div>
+        <div class="security-item">
+            <div class="security-icon">🛡️</div>
+            <h3>Access Controls</h3>
+            <p>Role-based access, audit logging, and tenant isolation to protect sensitive financial data.</p>
+        </div>
+        <div class="security-item">
+            <div class="security-icon">📋</div>
+            <h3>Data Handling</h3>
+            <p>Strict data retention policies. Customer data is never shared across tenants or used for training.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="about-inner">
+        <div class="section-label">About</div>
+        <h2>Kolidiscope, Inc.</h2>
+        <p>Kolidiscope was founded to solve a problem every data vendor knows: proving the value of your data products takes too long and costs too much. Our platform automates the analytical heavy lifting — waterfall optimization, prospective studies, model monitoring, and reporting — so data vendors in financial services can sell more effectively, onboard customers faster, and demonstrate ongoing value with confidence.</p>
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="contact">
     <div class="cta-box">
@@ -430,6 +683,8 @@
         <span>&copy; 2026 Kolidiscope. All rights reserved.</span>
         <div class="footer-links">
             <a href="/opensource">Open Source</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
             <a href="mailto:info@kolidiscope.com">Contact</a>
         </div>
     </div>
