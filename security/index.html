@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & SDLC Practices — Kolidiscope</title>
+    <meta name="description" content="Kolidiscope security practices, software development lifecycle, and open source component management.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2236;
+            --accent: #00d4ff;
+            --accent-dim: #0099b8;
+            --accent-glow: rgba(0, 212, 255, 0.15);
+            --text-primary: #e8edf5;
+            --text-secondary: #8892a4;
+            --border: #1e2a3a;
+            --gradient-1: linear-gradient(135deg, #00d4ff 0%, #7b61ff 100%);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .nav-logo img { height: 36px; width: auto; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { color: var(--accent); }
+        .btn { display: inline-block; padding: 0.65rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.25s; }
+        .btn-primary { background: var(--gradient-1); color: #fff; }
+        .btn-primary:hover { box-shadow: 0 0 24px rgba(0, 212, 255, 0.35); transform: translateY(-1px); }
+
+        .page-header { padding: 8rem 2rem 3rem; max-width: 860px; margin: 0 auto; }
+        .page-header h1 { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; max-width: 700px; }
+
+        .content-section { max-width: 860px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .content-section h2 {
+            font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;
+            letter-spacing: -0.02em; padding-top: 2rem; border-top: 1px solid var(--border);
+        }
+        .content-section h2:first-child { border-top: none; padding-top: 0; }
+        .content-section h3 { font-size: 1.05rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .content-section p {
+            color: var(--text-secondary); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem;
+        }
+        .content-section a { color: var(--accent); text-decoration: none; }
+        .content-section a:hover { text-decoration: underline; }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .practice-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .practice-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .practice-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.65;
+            margin-bottom: 0;
+        }
+
+        .callout {
+            background: var(--accent-glow);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .callout p {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .callout a { color: var(--accent); }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            padding: 3rem 2rem; border-top: 1px solid var(--border); text-align: center; margin-top: 3rem;
+        }
+        .footer-inner {
+            max-width: 960px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-inner span { color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.75rem 1rem; }
+            .nav-links { display: none; }
+            .page-header { padding: 7rem 1.5rem 2rem; }
+            .content-section { padding: 0 1.5rem 2rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="Kolidiscope" style="filter: brightness(0) invert(1);">
+    </a>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/opensource">Open Source</a>
+        <a href="/security" class="active">Security</a>
+        <a href="/#contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+    <h1>Security & SDLC Practices</h1>
+    <p>Kolidiscope is committed to building and operating a secure platform. This page outlines our software development lifecycle, infrastructure security, and open source component management practices.</p>
+</div>
+
+<section class="content-section">
+    <div class="last-updated">Last updated: April 8, 2026</div>
+
+    <!-- SDLC -->
+    <h2>Software Development Lifecycle</h2>
+    <p>Kolidiscope follows a structured SDLC to ensure code quality, reliability, and security across all releases.</p>
+
+    <div class="practice-grid">
+        <div class="practice-card">
+            <h4>Version Control</h4>
+            <p>All source code is managed in private Git repositories with branch protection policies. Direct commits to production branches are prohibited.</p>
+        </div>
+        <div class="practice-card">
+            <h4>Code Review</h4>
+            <p>All changes require peer review and approval before merging. Reviews evaluate correctness, security implications, and adherence to coding standards.</p>
+        </div>
+        <div class="practice-card">
+            <h4>Automated Testing</h4>
+            <p>Continuous integration pipelines run unit tests, integration tests, and static analysis on every commit. Builds must pass all checks before deployment.</p>
+        </div>
+        <div class="practice-card">
+            <h4>Staging & Validation</h4>
+            <p>Changes are deployed to a staging environment for validation before production release. Production deployments follow a controlled release process.</p>
+        </div>
+        <div class="practice-card">
+            <h4>Containerized Deployments</h4>
+            <p>Applications are packaged and deployed using Docker containers, ensuring consistent runtime environments and reproducible builds across all stages.</p>
+        </div>
+        <div class="practice-card">
+            <h4>Monitoring & Incident Response</h4>
+            <p>Production systems are continuously monitored for performance, errors, and anomalies. Alerts trigger defined incident response procedures.</p>
+        </div>
+    </div>
+
+    <!-- INFRASTRUCTURE SECURITY -->
+    <h2>Infrastructure Security</h2>
+
+    <h3>Encryption</h3>
+    <p>All data is encrypted in transit using TLS 1.2 or higher. Data at rest is encrypted using AES-256. Encryption keys are managed through cloud-native key management services.</p>
+
+    <h3>Cloud Hosting</h3>
+    <p>The Kolidiscope platform is hosted on SOC 2-compliant cloud infrastructure with automated backups, redundancy, and disaster recovery capabilities. Infrastructure is provisioned and managed using infrastructure-as-code practices.</p>
+
+    <h3>Access Controls</h3>
+    <p>Platform access is governed by role-based access controls (RBAC). Administrative access requires multi-factor authentication. All access events are logged and auditable.</p>
+
+    <h3>Tenant Isolation</h3>
+    <p>Customer environments are logically isolated. Data is segregated at the application and storage layers. No customer data is shared across tenants or accessible to other customers.</p>
+
+    <!-- OPEN SOURCE MANAGEMENT -->
+    <h2>Open Source Component Management</h2>
+    <p>Kolidiscope maintains a disciplined approach to incorporating and managing open source software.</p>
+
+    <div class="practice-grid">
+        <div class="practice-card">
+            <h4>Component Inventory</h4>
+            <p>We maintain a complete software bill of materials (SBOM) listing all open source components, versions, and licenses incorporated into the platform.</p>
+        </div>
+        <div class="practice-card">
+            <h4>License Compliance</h4>
+            <p>All open source components are evaluated for license compatibility before adoption. We use only components with permissive licenses (BSD, MIT, Apache 2.0, PSF).</p>
+        </div>
+        <div class="practice-card">
+            <h4>Vulnerability Scanning</h4>
+            <p>Dependencies are regularly scanned for known security vulnerabilities. Critical and high-severity findings are remediated on a prioritized timeline.</p>
+        </div>
+        <div class="practice-card">
+            <h4>Version Management</h4>
+            <p>Dependencies are pinned to specific versions. Updates are tested in staging before promotion. We track upstream releases and security advisories for all components.</p>
+        </div>
+    </div>
+
+    <div class="callout">
+        <p>Our complete software bill of materials is publicly available at <a href="/opensource">/opensource</a>, including all component names, license types, SPDX identifiers, and links to source licenses.</p>
+    </div>
+
+    <!-- SBOM -->
+    <h2>Software Bill of Materials (SBOM)</h2>
+    <p>Kolidiscope maintains a current and complete SBOM that documents every open source component incorporated into our platform. The SBOM includes component names, versions, license types, and SPDX license identifiers.</p>
+    <p>The full SBOM is available on our <a href="/opensource">Open Source Attributions</a> page and is updated whenever components are added, removed, or upgraded.</p>
+
+    <!-- DATA HANDLING -->
+    <h2>Data Handling & Retention</h2>
+    <p>Customer data is processed solely for the purpose of delivering contracted services. We maintain strict data retention policies — customer data is retained for the duration of the service agreement and securely deleted upon termination in accordance with agreed-upon timelines.</p>
+    <p>Customer data is never used for model training, benchmarking, or any purpose beyond direct service delivery without explicit written authorization.</p>
+
+    <!-- CONTACT -->
+    <h2>Questions</h2>
+    <p>For security inquiries, to request detailed documentation, or to discuss specific compliance requirements, contact us at <a href="mailto:info@kolidiscope.com">info@kolidiscope.com</a>.</p>
+
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <span>&copy; 2026 Kolidiscope. All rights reserved.</span>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/opensource">Open Source</a>
+            <a href="/privacy">Privacy</a>
+            <a href="mailto:info@kolidiscope.com">Contact</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
