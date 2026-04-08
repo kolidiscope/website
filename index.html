@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kolidiscope — Data Product Intelligence for Financial Services</title>
     <meta name="description" content="Kolidiscope automates data studies, prospective performance reporting, and analytics for data vendors in financial services.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kolidiscope — Data Product Intelligence for Financial Services">
+    <meta property="og:description" content="Optimize waterfalls, monitor scoring models, and automate prospective data studies for financial data vendors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kolidiscope.com">
+    <meta property="og:image" content="https://www.kolidiscope.com/og-image.png">
+    <meta property="og:site_name" content="Kolidiscope">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kolidiscope — Data Product Intelligence for Financial Services">
+    <meta name="twitter:description" content="Optimize waterfalls, monitor scoring models, and automate prospective data studies for financial data vendors.">
+    <meta name="twitter:image" content="https://www.kolidiscope.com/og-image.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -196,6 +209,43 @@
             gap: 1rem;
             flex-wrap: wrap;
             justify-content: center;
+        }
+
+        /* --- METRICS --- */
+        .metrics {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .metrics-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .metrics-grid { grid-template-columns: 1fr; gap: 1.5rem; }
         }
 
         /* --- FEATURES --- */
@@ -523,6 +573,7 @@
         <a href="#use-cases">Use Cases</a>
         <a href="#security">Security</a>
         <a href="#about">About</a>
+        <a href="/login">Client Login</a>
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
     </div>
 </nav>
@@ -538,30 +589,48 @@
     </div>
 </section>
 
+<!-- METRICS -->
+<section class="metrics">
+    <div class="metrics-grid">
+        <div class="metric">
+            <div class="metric-value">90%</div>
+            <div class="metric-label">Faster study turnaround</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">100+</div>
+            <div class="metric-label">Data studies automated</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">Ongoing</div>
+            <div class="metric-label">Scheduled model performance tracking</div>
+        </div>
+    </div>
+</section>
+
 <!-- FEATURES -->
 <section class="features" id="features">
     <div class="section-label">What we do</div>
-    <h2>Built for data vendors in financial services</h2>
+    <h2>Purpose-built for alternative data vendors and data product distribution</h2>
     <div class="feature-grid">
         <div class="feature-card">
             <div class="feature-icon">📊</div>
-            <h3>Waterfall Optimization</h3>
-            <p>Optimize data product waterfalls based on customer-specific constraints — whether they're targeting higher volume, lower risk, or reduced data cost. Find the best product configuration for every use case.</p>
+            <h3>Waterfall Decisioning & Optimization</h3>
+            <p>Optimize data product waterfalls based on customer-specific constraints — whether they're targeting higher approval volume, tighter risk tolerance, or reduced data cost. Find the best configuration for every decisioning use case.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">📈</div>
-            <h3>Model & Attribute Monitoring</h3>
-            <p>Continuously monitor scoring model performance and track attribute-level metrics over time. Catch drift early and keep your data products delivering results.</p>
+            <h3>Scoring Model & Attribute Monitoring</h3>
+            <p>Continuously monitor scoring model validation metrics and track attribute-level performance over time. Catch model drift early and keep your data products delivering predictive lift.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">📄</div>
-            <h3>Automated Studies & Reporting</h3>
-            <p>Run prospective performance studies and generate customer-ready reports on demand — proving the value of your data products in minutes, not weeks.</p>
+            <h3>Prospective Studies & Reporting</h3>
+            <p>Run prospective performance studies against customer portfolios and generate distribution-ready reports on demand — quantifying lift, coverage, and ROI in minutes, not weeks.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">⚡</div>
-            <h3>Cutoff Optimization & Decisioning</h3>
-            <p>Recommend optimal decision cutoffs that balance approval rates, risk tolerance, and cost — giving your customers clear, data-backed implementation guidance.</p>
+            <h3>Cutoff Optimization</h3>
+            <p>Recommend optimal decision cutoffs that balance approval rates, risk tolerance, and cost — giving your customers clear, data-backed implementation strategies for their credit and risk workflows.</p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🔧</div>
@@ -590,7 +659,7 @@
         <div class="step">
             <div class="step-number">02</div>
             <h3>Run Prospective Studies</h3>
-            <p>Automatically analyze your data against customer portfolios. The platform evaluates lift, coverage, and predictive power across segments.</p>
+            <p>Automatically analyze your data against customer portfolios. The platform evaluates predictive lift, population coverage, KS statistics, and segment-level performance.</p>
         </div>
         <div class="step-line"></div>
         <div class="step">
@@ -614,7 +683,7 @@
     <div class="feature-grid">
         <div class="use-case-card">
             <h3>Prove Data Product Lift</h3>
-            <p>Show prospects exactly how your data improves their decisioning with automated performance studies and clear, quantified results.</p>
+            <p>Show prospects exactly how your alternative data improves their credit decisioning with automated performance studies, lift charts, and quantified ROI.</p>
         </div>
         <div class="use-case-card">
             <h3>Optimize for New Customer Segments</h3>
@@ -684,6 +753,7 @@
         <div class="footer-links">
             <a href="/opensource">Open Source</a>
             <a href="/security">Security</a>
+            <a href="/faq">FAQ</a>
             <a href="/privacy">Privacy</a>
             <a href="mailto:info@kolidiscope.com">Contact</a>
         </div>
