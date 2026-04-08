@@ -6,6 +6,7 @@
     <title>Client Login — Kolidiscope</title>
     <meta name="description" content="Log in to the Kolidiscope platform.">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
     <meta property="og:title" content="Client Login — Kolidiscope">
     <meta property="og:description" content="Secure access to the Kolidiscope platform for data vendors.">
     <meta property="og:type" content="website">
@@ -282,7 +283,7 @@
             </div>
             <div class="form-options">
                 <label><input type="checkbox"> Remember me</label>
-                <a href="mailto:info@kolidiscope.com">Forgot password?</a>
+                <a href="#" data-ct="link">Forgot password?</a>
             </div>
             <button type="submit" class="btn-login">Sign In</button>
         </form>
@@ -299,9 +300,13 @@
         <span>&middot;</span>
         <a href="/privacy">Privacy</a>
         <span>&middot;</span>
-        <a href="mailto:info@kolidiscope.com">Support</a>
+        <a href="#" data-ct="link">Support</a>
     </div>
 </div>
 
+
+<script>
+(function(){var u='info',d='kolidiscope.com',e=u+'@'+d,m='mail'+'to:'+e;document.querySelectorAll('a[data-ct]').forEach(function(a){a.href=m;if(a.dataset.ct==='show')a.textContent=e;});})();
+</script>
 </body>
 </html>

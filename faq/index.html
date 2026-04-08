@@ -6,6 +6,7 @@
     <title>FAQ — Kolidiscope</title>
     <meta name="description" content="Frequently asked questions about the Kolidiscope platform for financial data vendors.">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
     <meta property="og:title" content="FAQ — Kolidiscope">
     <meta property="og:description" content="Common questions about onboarding, data handling, security, and platform capabilities.">
     <meta property="og:type" content="website">
@@ -313,7 +314,7 @@
 
     <div class="faq-cta">
         <p>Have a question that's not covered here?</p>
-        <a href="mailto:info@kolidiscope.com" class="btn btn-primary">Contact Us</a>
+        <a href="#" data-ct="link" class="btn btn-primary">Contact Us</a>
     </div>
 
 </section>
@@ -326,7 +327,7 @@
             <a href="/opensource">Open Source</a>
             <a href="/security">Security</a>
             <a href="/privacy">Privacy</a>
-            <a href="mailto:info@kolidiscope.com">Contact</a>
+            <a href="#" data-ct="link">Contact</a>
         </div>
     </div>
 </footer>
@@ -344,5 +345,9 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 });
 </script>
 
+
+<script>
+(function(){var u='info',d='kolidiscope.com',e=u+'@'+d,m='mail'+'to:'+e;document.querySelectorAll('a[data-ct]').forEach(function(a){a.href=m;if(a.dataset.ct==='show')a.textContent=e;});})();
+</script>
 </body>
 </html>

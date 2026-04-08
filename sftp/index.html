@@ -6,6 +6,7 @@
     <title>Secure Data Upload — Kolidiscope</title>
     <meta name="description" content="Securely upload data to the Kolidiscope platform via SFTP.">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
     <meta property="og:title" content="Secure Data Upload — Kolidiscope">
     <meta property="og:description" content="SFTP-based secure data upload for Kolidiscope platform customers.">
     <meta property="og:type" content="website">
@@ -242,7 +243,7 @@
     </div>
 
     <div class="callout">
-        <p>Need your SFTP credentials or have questions about data upload? Contact your account team or email <a href="mailto:info@kolidiscope.com" style="color: var(--accent);">info@kolidiscope.com</a>.</p>
+        <p>Need your SFTP credentials or have questions about data upload? Contact your account team or email <a href="#" data-ct="show" style="color: var(--accent);"></a>.</p>
     </div>
 
 </div>
@@ -255,10 +256,14 @@
             <a href="/security">Security</a>
             <a href="/faq">FAQ</a>
             <a href="/privacy">Privacy</a>
-            <a href="mailto:info@kolidiscope.com">Contact</a>
+            <a href="#" data-ct="link">Contact</a>
         </div>
     </div>
 </footer>
 
+
+<script>
+(function(){var u='info',d='kolidiscope.com',e=u+'@'+d,m='mail'+'to:'+e;document.querySelectorAll('a[data-ct]').forEach(function(a){a.href=m;if(a.dataset.ct==='show')a.textContent=e;});})();
+</script>
 </body>
 </html>

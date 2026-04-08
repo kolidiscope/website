@@ -6,6 +6,7 @@
     <title>Kolidiscope — Data Product Intelligence for Financial Services</title>
     <meta name="description" content="Kolidiscope automates data studies, prospective performance reporting, and analytics for data vendors in financial services.">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
     <!-- Open Graph -->
     <meta property="og:title" content="Kolidiscope — Data Product Intelligence for Financial Services">
     <meta property="og:description" content="Optimize waterfalls, monitor scoring models, and automate prospective data studies for financial data vendors.">
@@ -742,7 +743,7 @@
     <div class="cta-box">
         <h2>Ready to accelerate your data business?</h2>
         <p>See how Kolidiscope can streamline your data studies and reporting. Let's talk.</p>
-        <a href="mailto:info@kolidiscope.com" class="btn btn-primary">Contact Us</a>
+        <a href="#" data-ct="link" class="btn btn-primary">Contact Us</a>
     </div>
 </section>
 
@@ -755,10 +756,14 @@
             <a href="/security">Security</a>
             <a href="/faq">FAQ</a>
             <a href="/privacy">Privacy</a>
-            <a href="mailto:info@kolidiscope.com">Contact</a>
+            <a href="#" data-ct="link">Contact</a>
         </div>
     </div>
 </footer>
 
+
+<script>
+(function(){var u='info',d='kolidiscope.com',e=u+'@'+d,m='mail'+'to:'+e;document.querySelectorAll('a[data-ct]').forEach(function(a){a.href=m;if(a.dataset.ct==='show')a.textContent=e;});})();
+</script>
 </body>
 </html>

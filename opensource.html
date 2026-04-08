@@ -6,6 +6,7 @@
     <title>Open Source Attributions — Kolidiscope</title>
     <meta name="description" content="Open source software components and licenses used in Kolidiscope products.">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;">
     <meta property="og:title" content="Open Source Attributions — Kolidiscope">
     <meta property="og:description" content="Complete list of open source components and licenses used in the Kolidiscope platform.">
     <meta property="og:type" content="website">
@@ -585,7 +586,7 @@
     <!-- NOTES -->
     <div class="notes">
         <h3>Notice</h3>
-        <p>This page lists all open source software components incorporated into the Kolidiscope platform. We are grateful to the open source community for making these projects available. If you believe any attribution is missing or incorrect, please contact us at <a href="mailto:info@kolidiscope.com" style="color: var(--accent); text-decoration: none;">info@kolidiscope.com</a>. This page is updated as components are added, removed, or upgraded.</p>
+        <p>This page lists all open source software components incorporated into the Kolidiscope platform. We are grateful to the open source community for making these projects available. If you believe any attribution is missing or incorrect, please contact us at <a href="#" data-ct="show" style="color: var(--accent); text-decoration: none;"></a>. This page is updated as components are added, removed, or upgraded.</p>
     </div>
 </section>
 
@@ -598,10 +599,14 @@
             <a href="/security">Security</a>
             <a href="/faq">FAQ</a>
             <a href="/privacy">Privacy</a>
-            <a href="mailto:info@kolidiscope.com">Contact</a>
+            <a href="#" data-ct="link">Contact</a>
         </div>
     </div>
 </footer>
 
+
+<script>
+(function(){var u='info',d='kolidiscope.com',e=u+'@'+d,m='mail'+'to:'+e;document.querySelectorAll('a[data-ct]').forEach(function(a){a.href=m;if(a.dataset.ct==='show')a.textContent=e;});})();
+</script>
 </body>
 </html>
