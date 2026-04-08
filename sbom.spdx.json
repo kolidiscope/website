@@ -1,0 +1,217 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "kolidiscope-platform-sbom",
+  "documentNamespace": "https://kolidiscope.com/sbom/2026-04-08",
+  "creationInfo": {
+    "created": "2026-04-08T00:00:00Z",
+    "creators": [
+      "Organization: Kolidiscope, Inc.",
+      "Tool: manual"
+    ],
+    "licenseListVersion": "3.22"
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-python",
+      "name": "Python",
+      "versionInfo": "3.14",
+      "supplier": "Organization: Python Software Foundation",
+      "downloadLocation": "https://www.python.org/downloads/",
+      "homepage": "https://www.python.org",
+      "licenseConcluded": "PSF-2.0",
+      "licenseDeclared": "PSF-2.0",
+      "copyrightText": "Copyright (c) Python Software Foundation",
+      "description": "Programming language runtime",
+      "primaryPackagePurpose": "APPLICATION"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-flask",
+      "name": "Flask",
+      "versionInfo": "",
+      "supplier": "Organization: Pallets",
+      "downloadLocation": "https://pypi.org/project/Flask/",
+      "homepage": "https://flask.palletsprojects.com",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright (c) Pallets",
+      "description": "Lightweight web application framework",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-scikit-learn",
+      "name": "scikit-learn",
+      "versionInfo": "",
+      "supplier": "Organization: The scikit-learn developers",
+      "downloadLocation": "https://pypi.org/project/scikit-learn/",
+      "homepage": "https://scikit-learn.org",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright (c) The scikit-learn developers",
+      "description": "Machine learning library",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-numpy",
+      "name": "NumPy",
+      "versionInfo": "",
+      "supplier": "Organization: NumPy Developers",
+      "downloadLocation": "https://pypi.org/project/numpy/",
+      "homepage": "https://numpy.org",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright (c) NumPy Developers",
+      "description": "Numerical computing library",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pandas",
+      "name": "pandas",
+      "versionInfo": "",
+      "supplier": "Organization: PyData Development Team",
+      "downloadLocation": "https://pypi.org/project/pandas/",
+      "homepage": "https://pandas.pydata.org",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright (c) AQR Capital Management, Lambda Foundry, Inc., PyData Development Team",
+      "description": "Data analysis and manipulation library",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-scipy",
+      "name": "SciPy",
+      "versionInfo": "",
+      "supplier": "Organization: SciPy Developers",
+      "downloadLocation": "https://pypi.org/project/scipy/",
+      "homepage": "https://scipy.org",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright (c) Enthought, Inc. and SciPy Developers",
+      "description": "Scientific computing library",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-joblib",
+      "name": "joblib",
+      "versionInfo": "",
+      "supplier": "Organization: joblib Developers",
+      "downloadLocation": "https://pypi.org/project/joblib/",
+      "homepage": "https://joblib.readthedocs.io",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright (c) joblib Developers",
+      "description": "Lightweight pipelining and parallel computing",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-xgboost",
+      "name": "XGBoost",
+      "versionInfo": "",
+      "supplier": "Organization: XGBoost Contributors",
+      "downloadLocation": "https://pypi.org/project/xgboost/",
+      "homepage": "https://xgboost.ai",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright (c) XGBoost Contributors",
+      "description": "Gradient boosting framework",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-docker",
+      "name": "Docker",
+      "versionInfo": "",
+      "supplier": "Organization: Docker, Inc.",
+      "downloadLocation": "https://github.com/moby/moby",
+      "homepage": "https://www.docker.com",
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright (c) Docker, Inc.",
+      "description": "Container platform",
+      "primaryPackagePurpose": "APPLICATION"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-seaborn",
+      "name": "Seaborn",
+      "versionInfo": "",
+      "supplier": "Organization: Michael Waskom",
+      "downloadLocation": "https://pypi.org/project/seaborn/",
+      "homepage": "https://seaborn.pydata.org",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "BSD-3-Clause",
+      "copyrightText": "Copyright (c) Michael Waskom",
+      "description": "Statistical data visualization",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-matplotlib",
+      "name": "Matplotlib",
+      "versionInfo": "",
+      "supplier": "Organization: Matplotlib Development Team",
+      "downloadLocation": "https://pypi.org/project/matplotlib/",
+      "homepage": "https://matplotlib.org",
+      "licenseConcluded": "PSF-2.0",
+      "licenseDeclared": "PSF-2.0",
+      "copyrightText": "Copyright (c) Matplotlib Development Team",
+      "description": "Plotting and visualization library",
+      "primaryPackagePurpose": "LIBRARY"
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-python"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-flask"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-scikit-learn"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-numpy"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-pandas"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-scipy"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-joblib"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-xgboost"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-docker"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-seaborn"
+    },
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-matplotlib"
+    }
+  ]
+}
